@@ -11,7 +11,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
-	return EXIT_SUCCESS;
+int ValidarLimite(int numero,int limiteInferior);
+
+int main() {
+	setbuf(stdout,NULL);
+	int x,y,z;
+
+	printf("Ingresar Kilometros :");
+	scanf("%d",&x);
+	x=ValidarLimite(x,0);
+
+	printf("Precio vuelo Aerolineas: ");
+	scanf("%d",&y);
+
+	printf("Precio vuelo Latam: ");
+	scanf("%d",&z);
+
+
+
+
+	return 0;
+}
+
+int ValidarLimite(int numero,int limiteInferior)
+{
+
+    while(numero<limiteInferior)
+    {
+        printf("ERROR, Ingrese nuevamente los datos : ");
+        scanf("%d",&numero);
+    }
+    return numero;
 }
