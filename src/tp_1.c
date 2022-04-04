@@ -13,6 +13,7 @@
 int ValidarLimite(int numero,int limiteInferior);
 void Descuento(int a,float descuento);
 void Interes(int b,float interes);
+void BitcoinValor(int c);
 
 int main() {
 	setbuf(stdout,NULL);
@@ -32,8 +33,12 @@ int main() {
 	Descuento(y,0.9);
 	//DESCUENTO LATAM
 	Descuento(z,0.9);
-
+	//INTERES AEROLINEAS
 	Interes(y,1.25);
+	//INTERES AEROLINEAS
+	Interes(z,1.25);
+
+	BitcoinValor(y);
 
 	return 0;
 }
@@ -61,7 +66,16 @@ void Interes(int b,float interes)
 	interesTotal= b * interes;
 	printf("\nEl total con Interese es :%2.f",interesTotal);
 }
+void BitcoinValor(int c)
+{
+	float bitcoin
+		, totalBitcoin;
+	bitcoin= 4606954.55;
 
+	totalBitcoin= c/bitcoin;
+	printf("\nEl valor en Bitcoin es :%2.f",totalBitcoin);
+
+}
 
 
 
