@@ -7,11 +7,12 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 
 int ValidarLimite(int numero,int limiteInferior);
+void Descuento(int a,float descuento);
+void Interes(int b,float interes);
 
 int main() {
 	setbuf(stdout,NULL);
@@ -27,8 +28,12 @@ int main() {
 	printf("Precio vuelo Latam: ");
 	scanf("%d",&z);
 
+	//DESCUENTO AEROLINEAS
+	Descuento(y,0.9);
+	//DESCUENTO LATAM
+	Descuento(z,0.9);
 
-
+	Interes(y,1.25);
 
 	return 0;
 }
@@ -43,3 +48,20 @@ int ValidarLimite(int numero,int limiteInferior)
     }
     return numero;
 }
+void Descuento(int a,float descuento)
+{
+	float descuentoTotal;
+
+	descuentoTotal = a * descuento;
+	printf("\nEl total con descuento es :%2.f",descuentoTotal);
+}
+void Interes(int b,float interes)
+{
+	float interesTotal;
+	interesTotal= b * interes;
+	printf("\nEl total con Interese es :%2.f",interesTotal);
+}
+
+
+
+
