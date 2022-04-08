@@ -58,22 +58,22 @@ void Descuento(int a,float descuento)
 	float descuentoTotal;
 
 	descuentoTotal = a * descuento;
-	printf("\nEl total con descuento es :%2.f",descuentoTotal);
+	printf("\nEl total con descuento es :$%2.f",descuentoTotal);
 }
 void Interes(int b,float interes)
 {
 	float interesTotal;
 	interesTotal= b * interes;
-	printf("\nEl total con Interese es :%2.f",interesTotal);
+	printf("\nEl total con Interese es :$%2.f",interesTotal);
 }
 void BitcoinValor(int c)
 {
-	float bitcoin
+	double bitcoin
 		, totalBitcoin;
 	bitcoin= 4606954.55;
 
 	totalBitcoin= c/bitcoin;
-	printf("\nEl valor en Bitcoin es :%2.f",totalBitcoin);
+	printf("\nEl valor en Bitcoin es :%f BTN",totalBitcoin);
 
 }
 
