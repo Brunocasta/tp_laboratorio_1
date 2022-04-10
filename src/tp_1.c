@@ -7,36 +7,74 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-#include <stdio.h>
-#include <stdlib.h>
 
-int PedirEntero(char mensaje[]);
-int ValidarLimite(int numero,int limiteInferior);
-void Descuento(int a,float descuento);
-void Interes(int b,float interes);
-void BitcoinValor(int c);
-void PrecioUnitario ( int numero,float precioUnitario);
+#include <stdlib.h>
+#include "funciones.h"
 
 int main() {
 	setbuf(stdout,NULL);
-	int x,y,z;
+	int x,y,z
+		,opcion,opcion2;
 
-	//kilometros
-	x=PedirEntero("Ingresar Kilometros :");
+
+
+	do{
+		printf("           Menú");
+		printf("\n1) Ingresar KMs de Vuelo");
+		printf("\n2) Ingresar Precios de Vuelos");
+		printf("\n3) Calcular costos de los Vuelos");
+		printf("\n4) Informacion de Resultados");
+		printf("\n5) Resultados Generales");
+		printf("\n6) Salir de Menú ");
+		printf("\nElegir una Opción:");
+		scanf("%d",&opcion);
+
+		switch(opcion)
+		{
+		case 1:
+			PedirEntero("Ingresar Kilometros :");
+			break;
+		case 2 :
+			//INGRESO DE VUELOS
+			y=PedirEntero("Precio vuelo Aerolineas :\n");
+			z=PedirEntero("Precio vuelo Latam: \n");
+		break;
+		case 3:
+			do{
+					printf("\n1) Costos de vuelos con Aerolineas");
+					printf("\n2) Costos de Vuelos con Latam");
+					printf("\n3) Regresar a Menú ");
+					printf("\nElegir una Opción:");
+					scanf("%d",&opcion2);
+
+					switch(opcion2)
+					{
+					case 1:
+							printf("Costos de vuelos con Aerolineas");
+							//DESCUENTO AEROLINEAS
+								Descuento(y,0.9);
+							//INTERES AEROLINEAS
+								Interes(y,1.25);
+							//	BIT AEROLINEAS
+								BitcoinValor(y);
+							//UNITARIO AEROLINEAS
+								PrecioUnitario(y,x);
+								DiferenciaEnteros(y,z);
+					break;
+					}
+			}while(opcion2!=3);
+
+		break;
+
+		default:
+			printf("ERROR. Ingrese una Opción correcta\n");
+			break;
+		}
+
+	}while(opcion!=6);
+
+
 	//printf("\nKms Ingresados: %d kms",x);
-	//ValidarLimite(x,-1);
-	/*printf("Ingresar Kilometros :");
-	scanf("%d",&x);
-	x=ValidarLimite(x,1);
-	/*printf("Precio vuelo Aerolineas: ");
-	scanf("%d",&y);
-	printf("Precio vuelo Latam: ");
-	scanf("%d",&z);*/
-	y=PedirEntero("Precio vuelo Aerolineas :");
-
-	z=PedirEntero("Precio vuelo Latam: ");
-
-
 
 
 	//DESCUENTO AEROLINEAS
@@ -59,58 +97,7 @@ int main() {
 	//UNITARIO LATAM
 	PrecioUnitario(z,x);
 
+	DiferenciaEnteros(y,z);
+
 	return 0;
 }
-int PedirEntero(char mensaje[])//establezco para mostrar un mensaje,y los limite
-{
-    int numero;
-
-    printf("%s", mensaje);
-    scanf("%d",&numero);
-    numero=ValidarLimite(numero,1);
-
-    return numero;
-}
-
-int ValidarLimite(int numero,int limiteInferior)
-{
-
-    while(numero<limiteInferior)
-    {
-        printf("ERROR, Ingrese nuevamente los datos : ");
-        scanf("%d",&numero);
-    }
-    return numero;
-}
-void Descuento(int a,float descuento)
-{
-	float descuentoTotal;
-
-	descuentoTotal = a * descuento;
-	printf("\nEl total con descuento es :$%2.f",descuentoTotal);
-}
-void Interes(int b,float interes)
-{
-	float interesTotal;
-	interesTotal= b * interes;
-	printf("\nEl total con Interese es :$%2.f",interesTotal);
-}
-void BitcoinValor(int c)
-{
-	double bitcoin
-		, totalBitcoin;
-	bitcoin= 4606954.55;
-
-	totalBitcoin= c/bitcoin;
-	printf("\nEl valor en Bitcoin es :%f BTN",totalBitcoin);
-
-}
-void PrecioUnitario ( int numero,float precioUnitario)
-{
-	float totalUnitario;
-	totalUnitario =numero /precioUnitario;
-	printf("\nEl precio unitario del vuelo es:%f",totalUnitario);
-
-
-}
-
