@@ -13,91 +13,130 @@
 
 int main() {
 	setbuf(stdout,NULL);
-	int x,y,z
-		,opcion,opcion2;
 
-
+	int totalKilometros,opcion;
+	float precioTotalAA,precioTotalLatam,descuentoAerolineas,interesAerolineas,bitcoinsAerolineas
+		 ,precioUnitarioAerolineas,diferenciaPrecioIngresados,descuentoLatam,interesLatam
+		 ,bitcoinsLatam,precioUnitarioLatam;
+	float porcientoDescuento= 0.9;
+	float porcientoInteres= 1.25;
+	int realizoCalculos=0;
+	char salir;
 
 	do{
-		printf("           Menú");
-		printf("\n1) Ingresar KMs de Vuelo");
-		printf("\n2) Ingresar Precios de Vuelos");
-		printf("\n3) Calcular costos de los Vuelos");
-		printf("\n4) Informacion de Resultados");
-		printf("\n5) Resultados Generales");
-		printf("\n6) Salir de Menú ");
-		printf("\nElegir una Opción:");
-		scanf("%d",&opcion);
-
-		switch(opcion)
-		{
-		case 1:
-			PedirEntero("Ingresar Kilometros :");
+		opcion= MostrarMenu();
+			switch(opcion)
+			{
+			case 1:
+				totalKilometros=PedirEntero("Ingresar Kilometros :");
 			break;
-		case 2 :
-			//INGRESO DE VUELOS
-			y=PedirEntero("Precio vuelo Aerolineas :\n");
-			z=PedirEntero("Precio vuelo Latam: \n");
-		break;
-		case 3:
-			do{
-					printf("\n1) Costos de vuelos con Aerolineas");
-					printf("\n2) Costos de Vuelos con Latam");
-					printf("\n3) Regresar a Menú ");
-					printf("\nElegir una Opción:");
-					scanf("%d",&opcion2);
-
-					switch(opcion2)
-					{
-					case 1:
-							printf("Costos de vuelos con Aerolineas");
-							//DESCUENTO AEROLINEAS
-								Descuento(y,0.9);
-							//INTERES AEROLINEAS
-								Interes(y,1.25);
-							//	BIT AEROLINEAS
-								BitcoinValor(y);
-							//UNITARIO AEROLINEAS
-								PrecioUnitario(y,x);
-								DiferenciaEnteros(y,z);
-					break;
-					}
-			}while(opcion2!=3);
-
-		break;
-
-		default:
-			printf("ERROR. Ingrese una Opción correcta\n");
+			case 2 :
+				//INGRESO DE VUELOS
+				if(totalKilometros!=0)
+				{
+					precioTotalAA = PedirFlotante("Precio vuelo Aerolineas :\n");
+					precioTotalLatam = PedirFlotante("Precio vuelo Latam: \n");
+				}else
+				{
+					printf("\nPor favor,Ingresar KMs de Vuelo.Gracias\n");
+				}
 			break;
-		}
+			case 3:
+				if(totalKilometros > 0 && precioTotalAA>0 && precioTotalLatam>0)
+				{
+					descuentoAerolineas = CalcularPrecioConDescuento(precioTotalAA,porcientoDescuento);
+					interesAerolineas = CalcularPrecioConInteres(precioTotalAA,porcientoInteres);
+					bitcoinsAerolineas = CalcularValorBitcoins(precioTotalAA);
+					precioUnitarioAerolineas = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalAA);
 
+					descuentoLatam = CalcularPrecioConDescuento(precioTotalLatam,porcientoDescuento);
+					interesLatam = CalcularPrecioConInteres(precioTotalLatam,porcientoInteres);
+					bitcoinsLatam = CalcularValorBitcoins(precioTotalLatam);
+					precioUnitarioLatam = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalLatam);
+
+					diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
+
+					realizoCalculos=1;
+				}
+				else
+				{
+					printf("\nPor favor,Ingresar KMs de Vuelo y/o Precios de vuelo.Gracias\n");
+				}
+
+			break;
+			case 4:
+				if(realizoCalculos==1)
+				{
+					printf("\n**Precio Latam**");
+					printf("\nPrecio con Tarjeta de Debito :$%2.f",descuentoLatam);
+					printf("\nPrecio con Tarjeta de Credito :$%2.f",interesLatam);
+					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsLatam);
+					printf("\nEl Precio Unitario es:$%.3f\n",precioUnitarioLatam);
+
+					printf("\n**Precio Aerolineas**");
+					printf("\nPrecio con Tarjeta de Debito :$%2.f",descuentoAerolineas);
+					printf("\nPrecio con Tarjeta de Credito :$%2.f",interesAerolineas);
+					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsAerolineas);
+					printf("\nEl Precio Unitario es:$%.3f",precioUnitarioAerolineas);
+
+					printf("\nLa diferencia de precios es:$%.2f",diferenciaPrecioIngresados);
+				}
+				else
+				{
+					printf("\nPor favor,Ingresar KMs de Vuelo y/o precios de vuelo\n y luego asegurese de elegir la opcion 3.Gracias\n");
+				}
+
+			break;
+			case 5:
+				totalKilometros=7090;
+
+				precioTotalAA=162965;
+				precioTotalLatam=159339;
+
+				descuentoAerolineas = CalcularPrecioConDescuento(precioTotalAA,porcientoDescuento);
+				interesAerolineas = CalcularPrecioConInteres(precioTotalAA,porcientoInteres);
+				bitcoinsAerolineas = CalcularValorBitcoins(precioTotalAA);
+				precioUnitarioAerolineas = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalAA);
+
+				descuentoLatam = CalcularPrecioConDescuento(precioTotalLatam,porcientoDescuento);
+				interesLatam = CalcularPrecioConInteres(precioTotalLatam,porcientoInteres);
+				bitcoinsLatam = CalcularValorBitcoins(precioTotalLatam);
+				precioUnitarioLatam = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalLatam);
+
+				diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
+
+				//mostrar lo mismo que en opcion 4 sin los if
+				printf("\nKMs Ingresados: %d km\n",totalKilometros);
+				printf("\na)Precio Aerolineas:$%2.f",precioTotalAA);
+				printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoAerolineas);
+				printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesAerolineas);
+				printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsAerolineas);
+				printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioAerolineas);
+
+				printf("\na)Precio Latam:$%2.f",precioTotalLatam);
+				printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoLatam);
+				printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesLatam);
+				printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsLatam);
+				printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioLatam);
+
+				printf("\nLa diferencia de precio es:$ %.2f\n",diferenciaPrecioIngresados);
+			break;
+			case 6:
+
+				printf("Esta seguro que deseea salir? y/n\n");
+				scanf("%c",&salir);
+				if(salir!= 'y'){
+					opcion= MostrarMenu();
+				}else{
+					printf("Gracias por utilizar BrunoServices\n");
+				}
+
+			break;
+			default:
+				printf("ERROR. Ingrese una Opción correcta\n");
+			break;
+	}
 	}while(opcion!=6);
-
-
-	//printf("\nKms Ingresados: %d kms",x);
-
-
-	//DESCUENTO AEROLINEAS
-	Descuento(y,0.9);
-	//DESCUENTO LATAM
-	Descuento(z,0.9);
-
-	//INTERES AEROLINEAS
-	Interes(y,1.25);
-	//INTERES LATAM
-	Interes(z,1.25);
-
-	//	BIT AEROLINEAS
-	BitcoinValor(y);
-	//BIT LATAM
-	BitcoinValor(z);
-
-	//UNITARIO AEROLINEAS
-	PrecioUnitario(y,x);
-	//UNITARIO LATAM
-	PrecioUnitario(z,x);
-
-	DiferenciaEnteros(y,z);
 
 	return 0;
 }

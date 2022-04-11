@@ -12,7 +12,26 @@ int PedirEntero(char mensaje[])//establezco para mostrar un mensaje,y los limite
 
     return numero;
 }
+float PedirFlotante(char mensaje[])
+{
+	float numero;
 
+	printf("%s", mensaje);
+	scanf("%f",&numero);
+	numero=ValidarLimiteFlotante(numero,1);
+
+	return numero;
+}
+float ValidarLimiteFlotante(float numero,int limiteInferior)
+{
+
+    while(numero<limiteInferior)
+    {
+        printf("ERROR...Por Favor,ingrese nuevamente los datos : ");
+        scanf("%f",&numero);
+    }
+    return numero;
+}
 int ValidarLimite(int numero,int limiteInferior)
 {
 
@@ -24,46 +43,61 @@ int ValidarLimite(int numero,int limiteInferior)
     return numero;
 }
 
-void Descuento(int a,float descuento)
+float CalcularPrecioConDescuento(float precioTotal,float descuento)
 {
-	float descuentoTotal;
-
-	descuentoTotal = a * descuento;
-	printf("\nPrecio con Tarjeta de Debito  :$%2.f",descuentoTotal);
+	float totalDescuento;
+	totalDescuento=precioTotal * descuento;
+	return totalDescuento;
 }
 
-void Interes(int b,float interes)
+float CalcularPrecioConInteres(float precioTotal,float interes)
 {
 	float interesTotal;
-	interesTotal= b * interes;
-	printf("\nPrecio con Tarjeta de Credito :$%2.f",interesTotal);
+	interesTotal= precioTotal * interes;
+	return interesTotal;
 }
 
-void BitcoinValor(int c)
+double CalcularValorBitcoins(float precioTotal)
 {
 	double bitcoin
 		, totalBitcoin;
 	bitcoin= 4765477.37;
+	totalBitcoin= precioTotal/bitcoin;
 
-	totalBitcoin= c/bitcoin;
-	printf("\nEl Precio pagando con Bitcoin:%f BTC",totalBitcoin);
-
+	return totalBitcoin;
 }
 
-void PrecioUnitario ( int numero,float precioUnitario)
+float CalcularPrecioKilometroUnitario ( int kilometros,float precioTotal)
 {
-	float totalUnitario;
-	totalUnitario =numero /precioUnitario;
-	printf("\nEl Precio Unitario es:$%.3f",totalUnitario);
+	float totalPrecioUnitario;
+	totalPrecioUnitario=precioTotal / kilometros;
+	return totalPrecioUnitario;
 }
 
-void DiferenciaEnteros(int numero1, int numero2)
+float DiferenciaPreciosTotales(float total1, float total2)
 {
 	float totalDiferencia;
-	if(numero1>numero2){
-		totalDiferencia=numero1-numero2;
-	}else{
-		totalDiferencia=numero2-numero1;
+	totalDiferencia=total1-total2;
+
+	if(totalDiferencia<0)
+	{
+		return totalDiferencia*-1;
 	}
-	printf("\nLa diferencia de precios es:$%.2f",totalDiferencia);
+	return totalDiferencia;
+}
+
+int MostrarMenu(void)
+{
+	int opcion;
+	printf("\n           Menú");
+	printf("\n1) Ingresar KMs de Vuelo");
+	printf("\n2) Ingresar Precios de Vuelos");
+	printf("\n3) Calcular costos de los Vuelos");
+	printf("\n4) Informacion de Resultados");
+	printf("\n5) Resultados Generales");
+	printf("\n6) Salir de Menú ");
+	printf("\nElegir una Opción:");
+	scanf("%d",&opcion);
+
+	return opcion;
 }

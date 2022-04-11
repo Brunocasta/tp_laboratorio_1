@@ -10,12 +10,15 @@
 #include <stdio.h>
 
 int PedirEntero(char mensaje[]);
+int MostrarMenu(void);
 int ValidarLimite(int numero,int limiteInferior);
-void Descuento(int a,float descuento);
-void Interes(int b,float interes);
-void BitcoinValor(int c);
-void PrecioUnitario ( int numero,float precioUnitario);
-void DiferenciaEnteros(int numero1, int numero2);
+float PedirFlotante(char mensaje[]);
+float ValidarLimiteFlotante(float numero,int limiteInferior);
+float CalcularPrecioConDescuento(float precioTotal,float descuento);
+float CalcularPrecioConInteres(float precioTotal,float interes);
+double CalcularValorBitcoins(float precioTotal);
+float CalcularPrecioKilometroUnitario ( int kilometros,float precioTotal);
+float DiferenciaPreciosTotales(float total1, float total2);
 
 
 
