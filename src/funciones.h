@@ -8,6 +8,9 @@
 #ifndef FUNCIONES_H_
 #define FUNCIONES_H_
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 
 int PedirEntero(char mensaje[]);
 int MostrarMenu(void);

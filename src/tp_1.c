@@ -14,9 +14,11 @@
 int main() {
 	setbuf(stdout,NULL);
 
-	int totalKilometros,opcion;
-	float precioTotalAA,precioTotalLatam,descuentoAerolineas,interesAerolineas,bitcoinsAerolineas
-		 ,precioUnitarioAerolineas,diferenciaPrecioIngresados,descuentoLatam,interesLatam
+	int opcion;
+	float precioTotalAA=0,precioTotalLatam=0,totalKilometros=0
+		 ,descuentoAerolineas,interesAerolineas,bitcoinsAerolineas
+		 ,precioUnitarioAerolineas,diferenciaPrecioIngresados
+		 ,descuentoLatam,interesLatam
 		 ,bitcoinsLatam,precioUnitarioLatam;
 	float porcientoDescuento= 0.9;
 	float porcientoInteres= 1.25;
@@ -31,7 +33,6 @@ int main() {
 				totalKilometros=PedirEntero("Ingresar Kilometros :");
 			break;
 			case 2 :
-				//INGRESO DE VUELOS
 				if(totalKilometros!=0)
 				{
 					precioTotalAA = PedirFlotante("Precio vuelo Aerolineas :\n");
@@ -80,6 +81,10 @@ int main() {
 					printf("\nEl Precio Unitario es:$%.3f",precioUnitarioAerolineas);
 
 					printf("\nLa diferencia de precios es:$%.2f",diferenciaPrecioIngresados);
+
+					totalKilometros=0;
+					precioTotalAA=0;
+					precioTotalLatam=0;
 				}
 				else
 				{
@@ -105,8 +110,7 @@ int main() {
 
 				diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
 
-				//mostrar lo mismo que en opcion 4 sin los if
-				printf("\nKMs Ingresados: %d km\n",totalKilometros);
+				printf("\nKMs Ingresados: %2.f km\n",totalKilometros);
 				printf("\na)Precio Aerolineas:$%2.f",precioTotalAA);
 				printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoAerolineas);
 				printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesAerolineas);
@@ -120,13 +124,18 @@ int main() {
 				printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioLatam);
 
 				printf("\nLa diferencia de precio es:$ %.2f\n",diferenciaPrecioIngresados);
+
+				totalKilometros=0;
+				precioTotalAA=0;
+				precioTotalLatam=0;
+
 			break;
 			case 6:
 
 				printf("Esta seguro que deseea salir? y/n\n");
 				scanf("%c",&salir);
 				if(salir!= 'y'){
-					opcion= MostrarMenu();
+					opcion=MostrarMenu();
 				}else{
 					printf("Gracias por utilizar BrunoServices\n");
 				}
@@ -135,7 +144,7 @@ int main() {
 			default:
 				printf("ERROR. Ingrese una Opción correcta\n");
 			break;
-	}
+			}
 	}while(opcion!=6);
 
 	return 0;
