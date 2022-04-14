@@ -46,14 +46,14 @@ int ValidarLimite(int numero,int limiteInferior)
 int MostrarMenu(void)
 {
 	int opcion;
-	printf("\n           Menú");
+	printf("\n           Men%c",151);
 	printf("\n1) Ingresar KMs de Vuelo");
 	printf("\n2) Ingresar Precios de Vuelos");
 	printf("\n3) Calcular costos de los Vuelos");
-	printf("\n4) Informacion de Resultados");
-	printf("\n5) Resultados Generales");
-	printf("\n6) Salir de Menú ");
-	printf("\nElegir una Opción:");
+	printf("\n4) Informaci%cn de Resultados",149);
+	printf("\n5) Carga Forzada de Datos");
+	printf("\n6) Salir del Programa ");
+	printf("\nElegir una Opci%cn:",149);
 	scanf("%d",&opcion);
 
 	return opcion;

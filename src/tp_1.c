@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "funcionesValidar.h"
 #include "funcionesCalcular.h"
 
@@ -25,7 +26,6 @@ int main() {
 	float porcientoDescuento= 0.9;
 	float porcientoInteres= 1.25;
 	int realizoCalculos=0;
-	char salir;
 
 	do{
 		opcion= MostrarMenu();
@@ -59,13 +59,13 @@ int main() {
 
 					diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
 
+					printf("\nCalculos realizados con exito, presione 4 para ver resultados");
 					realizoCalculos=1;
 				}
 				else
 				{
 					printf("\nPor favor,Ingresar KMs de Vuelo y/o Precios de vuelo.Gracias\n");
 				}
-
 			break;
 			case 4:
 				if(realizoCalculos==1)
@@ -92,58 +92,49 @@ int main() {
 				{
 					printf("\nPor favor,Ingresar KMs de Vuelo y/o precios de vuelo\n y luego asegurese de elegir la opcion 3.Gracias\n");
 				}
-
 			break;
 			case 5:
-				totalKilometros=7090;
+					totalKilometros=7090;
 
-				precioTotalAA=162965;
-				precioTotalLatam=159339;
+					precioTotalAA=162965;
+					precioTotalLatam=159339;
 
-				descuentoAerolineas = CalcularPrecioConDescuento(precioTotalAA,porcientoDescuento);
-				interesAerolineas = CalcularPrecioConInteres(precioTotalAA,porcientoInteres);
-				bitcoinsAerolineas = CalcularValorBitcoins(precioTotalAA);
-				precioUnitarioAerolineas = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalAA);
+					descuentoAerolineas = CalcularPrecioConDescuento(precioTotalAA,porcientoDescuento);
+					interesAerolineas = CalcularPrecioConInteres(precioTotalAA,porcientoInteres);
+					bitcoinsAerolineas = CalcularValorBitcoins(precioTotalAA);
+					precioUnitarioAerolineas = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalAA);
 
-				descuentoLatam = CalcularPrecioConDescuento(precioTotalLatam,porcientoDescuento);
-				interesLatam = CalcularPrecioConInteres(precioTotalLatam,porcientoInteres);
-				bitcoinsLatam = CalcularValorBitcoins(precioTotalLatam);
-				precioUnitarioLatam = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalLatam);
+					descuentoLatam = CalcularPrecioConDescuento(precioTotalLatam,porcientoDescuento);
+					interesLatam = CalcularPrecioConInteres(precioTotalLatam,porcientoInteres);
+					bitcoinsLatam = CalcularValorBitcoins(precioTotalLatam);
+					precioUnitarioLatam = CalcularPrecioKilometroUnitario(totalKilometros,precioTotalLatam);
 
-				diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
+					diferenciaPrecioIngresados = DiferenciaPreciosTotales(precioTotalAA,precioTotalLatam);
 
-				printf("\nKMs Ingresados: %2.f km\n",totalKilometros);
-				printf("\na)Precio Aerolineas:$%2.f",precioTotalAA);
-				printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoAerolineas);
-				printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesAerolineas);
-				printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsAerolineas);
-				printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioAerolineas);
+					printf("\nKMs Ingresados: %2.f km\n",totalKilometros);
+					printf("\na)Precio Aerolineas:$%2.f",precioTotalAA);
+					printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoAerolineas);
+					printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesAerolineas);
+					printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsAerolineas);
+					printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioAerolineas);
 
-				printf("\na)Precio Latam:$%2.f",precioTotalLatam);
-				printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoLatam);
-				printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesLatam);
-				printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsLatam);
-				printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioLatam);
+					printf("\na)Precio Latam:$%2.f",precioTotalLatam);
+					printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoLatam);
+					printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesLatam);
+					printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsLatam);
+					printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioLatam);
 
-				printf("\nLa diferencia de precio es:$ %.2f\n",diferenciaPrecioIngresados);
+					printf("\nLa diferencia de precio es:$ %.2f\n",diferenciaPrecioIngresados);
 
-				totalKilometros=0;
-				precioTotalAA=0;
-				precioTotalLatam=0;
-
+					totalKilometros=0;
+					precioTotalAA=0;
+					precioTotalLatam=0;
 			break;
 			case 6:
-				printf("Esta seguro que deseea salir? y/n\n");
-				scanf("%c",&salir);
-				if(salir!= 'y'){
-					opcion =3;
-				}else{
 					printf("\nGracias por utilizar BrunoServices\n");
-				}
-
 			break;
 			default:
-				printf("ERROR. Ingrese una Opción correcta\n");
+				printf("ERROR. Ingrese una Opci%cn correcta\n",149);
 			break;
 			}
 	}while(opcion!=6);
