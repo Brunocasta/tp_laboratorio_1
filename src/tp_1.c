@@ -9,7 +9,9 @@
  */
 
 #include <stdlib.h>
-#include "funciones.h"
+#include <string.h>
+#include "funcionesValidar.h"
+#include "funcionesCalcular.h"
 
 int main() {
 	setbuf(stdout,NULL);
@@ -131,13 +133,12 @@ int main() {
 
 			break;
 			case 6:
-
 				printf("Esta seguro que deseea salir? y/n\n");
 				scanf("%c",&salir);
 				if(salir!= 'y'){
-					opcion=MostrarMenu();
+					opcion =3;
 				}else{
-					printf("Gracias por utilizar BrunoServices\n");
+					printf("\nGracias por utilizar BrunoServices\n");
 				}
 
 			break;
