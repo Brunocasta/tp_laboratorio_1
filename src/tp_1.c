@@ -82,7 +82,7 @@ int main() {
 					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsAerolineas);
 					printf("\nEl Precio Unitario es:$%.3f",precioUnitarioAerolineas);
 
-					printf("\nLa diferencia de precios es:$%.2f",diferenciaPrecioIngresados);
+					printf("\nLa diferencia de precios es:$%.2f\n",diferenciaPrecioIngresados);
 
 					totalKilometros=0;
 					precioTotalAA=0;

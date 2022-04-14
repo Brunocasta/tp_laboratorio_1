@@ -55,6 +55,6 @@ int MostrarMenu(void)
 	printf("\n6) Salir del Programa ");
 	printf("\nElegir una Opci%cn:",149);
 	scanf("%d",&opcion);
-
+	system("cls");
 	return opcion;
 }
