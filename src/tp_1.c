@@ -73,13 +73,13 @@ int main() {
 					printf("\nPrecio con Tarjeta de Debito :$%2.f",descuentoLatam);
 					printf("\nPrecio con Tarjeta de Credito :$%2.f",interesLatam);
 					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsLatam);
-					printf("\nEl Precio Unitario es:$%.3f\n",precioUnitarioLatam);
+					printf("\nEl Precio Unitario es:$%.2f\n",precioUnitarioLatam);
 
 					printf("\n**Precio Aerolineas**");
 					printf("\nPrecio con Tarjeta de Debito :$%2.f",descuentoAerolineas);
 					printf("\nPrecio con Tarjeta de Credito :$%2.f",interesAerolineas);
 					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsAerolineas);
-					printf("\nEl Precio Unitario es:$%.3f\n",precioUnitarioAerolineas);
+					printf("\nEl Precio Unitario es:$%.2f\n",precioUnitarioAerolineas);
 
 					printf("\nLa diferencia de precios es:$%.2f\n",diferenciaPrecioIngresados);
 
@@ -115,13 +115,13 @@ int main() {
 					printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoAerolineas);
 					printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesAerolineas);
 					printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsAerolineas);
-					printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioAerolineas);
+					printf("\ne)El Precio Unitario es:$ %.2f\n",precioUnitarioAerolineas);
 
 					printf("\na)Precio Latam:$%2.f",precioTotalLatam);
 					printf("\nb)Precio con Tarjeta de Debito :$ %2.f",descuentoLatam);
 					printf("\nc)Precio con Tarjeta de Credito :$ %2.f",interesLatam);
 					printf("\nd)El Precio pagando con Bitcoin: %f BTC",bitcoinsLatam);
-					printf("\ne)El Precio Unitario es:$ %.3f\n",precioUnitarioLatam);
+					printf("\ne)El Precio Unitario es:$ %.2f\n",precioUnitarioLatam);
 
 					printf("\nLa diferencia de precio es:$ %.2f\n",diferenciaPrecioIngresados);
 
