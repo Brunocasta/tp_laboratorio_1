@@ -32,7 +32,7 @@ int main() {
 			switch(opcion)
 			{
 			case 1:
-				totalKilometros=PedirEntero("Ingresar Kilometros :");
+					totalKilometros=PedirEntero("Ingresar Kilometros :");
 			break;
 			case 2 :
 				if(totalKilometros!=0)
@@ -80,7 +80,7 @@ int main() {
 					printf("\nPrecio con Tarjeta de Debito :$%2.f",descuentoAerolineas);
 					printf("\nPrecio con Tarjeta de Credito :$%2.f",interesAerolineas);
 					printf("\nEl Precio pagando con Bitcoin:%f BTC",bitcoinsAerolineas);
-					printf("\nEl Precio Unitario es:$%.3f",precioUnitarioAerolineas);
+					printf("\nEl Precio Unitario es:$%.3f\n",precioUnitarioAerolineas);
 
 					printf("\nLa diferencia de precios es:$%.2f\n",diferenciaPrecioIngresados);
 
@@ -134,7 +134,7 @@ int main() {
 					printf("\nGracias por utilizar BrunoServices\n");
 			break;
 			default:
-				printf("ERROR. Ingrese una Opci%cn correcta\n",149);
+					printf("ERROR. Ingrese una Opci%cn correcta\n",149);
 			break;
 			}
 	}while(opcion!=6);
