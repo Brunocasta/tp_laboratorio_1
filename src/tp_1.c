@@ -17,15 +17,14 @@
 int main() {
 	setbuf(stdout,NULL);
 
-	int opcion;
-	float precioTotalAA=0,precioTotalLatam=0,totalKilometros=0
-		 ,descuentoAerolineas,interesAerolineas,bitcoinsAerolineas
-		 ,precioUnitarioAerolineas,diferenciaPrecioIngresados
-		 ,descuentoLatam,interesLatam
-		 ,bitcoinsLatam,precioUnitarioLatam;
-	float porcientoDescuento= 0.9;
-	float porcientoInteres= 1.25;
-	int realizoCalculos=0;
+		int opcion,realizoCalculos=0;
+		float precioTotalAA=0,precioTotalLatam=0,totalKilometros=0
+			 ,descuentoAerolineas,interesAerolineas,bitcoinsAerolineas
+			 ,precioUnitarioAerolineas,diferenciaPrecioIngresados
+			 ,descuentoLatam,interesLatam
+			 ,bitcoinsLatam,precioUnitarioLatam
+			 ,porcientoDescuento= 0.9
+			 ,porcientoInteres= 1.25;
 
 	do{
 		opcion= MostrarMenu();
