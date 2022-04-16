@@ -131,6 +131,7 @@ int main() {
 			break;
 			case 6:
 					printf("\nGracias por utilizar BrunoServices\n");
+					system('pause');
 			break;
 			default:
 					printf("ERROR. Ingrese una Opci%cn correcta\n",149);
