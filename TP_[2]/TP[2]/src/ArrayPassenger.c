@@ -7,6 +7,7 @@
 #include "ArrayPassenger.h"
 #include "validacionesFunciones.h"
 
+
 int initPassengers(ePassenger * passengers, int len)
 {
 	int i;
@@ -33,18 +34,17 @@ int CreatePassenger(ePassenger* passengers, int cant, TypePassenger tipoPasajero
 	eEstadoVuelo estadoVuelo;
 	TypePassenger tipoPasajero;
 
-	CharIngresada(name,51,"Ingrese Nombre Pasajero : \n","Error...Ingrese Nombre Pasajerocorrecto\n");
+	utn_getNombre(name,51,"Ingrese Nombre Pasajero : \n","Error...Ingrese Nombre Pasajerocorrecto\n",3);
 
-	CharIngresada(lastName,51,"Ingrese Apellido Pasajero : \n","Error...Ingrese Apellido Pasajero correcto\n");
+	utn_getNombre(lastName,51,"Ingrese Apellido Pasajero : \n","Error...Ingrese Apellido Pasajero correcto\n",3);
 
-	respuestaFlotante=utn_getNumeroFloat(&price,"Ingrese Precio de vuelo : \n","Error...Ingrese un valor correcto\n",0,50000,3);
+	respuestaFlotante=utn_getNumeroFlotante(&price,"Ingrese Precio de vuelo : \n","Error...Ingrese un valor correcto\n",0,5000000,6);
 	while(respuestaFlotante<0)
 	{
-		respuestaFlotante=utn_getNumeroFloat(&price,"Ingrese Precio de vuelo correcto : \n","Error...Ingrese un valor correcto\n",0,50000,3);
+		respuestaFlotante=utn_getNumeroFlotante(&price,"Ingrese Precio de vuelo correcto : \n","Error...Ingrese un valor correcto\n",0,5000000,6);
 	}
 
 	CharIngresada(flycode,51,"Ingrese Codigo de Vuelo : \n","Error...Ingrese un valor correcto\n");
-
 
 	for(i=0;i<CANTTIPO;i++)
 	{
@@ -107,6 +107,8 @@ int addPassenger(ePassenger* passengers, int cant, char name[],char lastName[],f
 	}
 	return -1;
 }
+
+
 void HardcodePassengers(ePassenger passengers[],TypePassenger tipoPasajero[],eEstadoVuelo estado[])
 {
 
@@ -136,6 +138,7 @@ void HardcodePassengers(ePassenger passengers[],TypePassenger tipoPasajero[],eEs
 	printPassenger(passengers,5);
 
 }
+
 int findPassengerById(ePassenger * passengers, int cant,int id)
 {
 	int auxPasajero,i;
@@ -183,16 +186,16 @@ int ModifyPassenger(ePassenger * passengers, int cant,int id,TypePassenger tipoP
 			opcion=MenuDeOpciones("\n1. Nombre\n2. Apellido\n3. Precio\n4. Tipo de pasajero\n5. Código de vuelo \n6. Salir \nOpcion:");
 				switch(opcion){
 				case 1 :
-					CharIngresada(passengers[passengerPosition].name,51,"Ingrese Nombre Pasajero : \n","Error...Ingrese Nombre Pasajerocorrecto\n");
+					utn_getNombre(passengers[passengerPosition].name,51,"Ingrese Nombre Pasajero : \n","Error...Ingrese Nombre Pasajerocorrecto\n",3);
 					break;
 				case 2 :
-					CharIngresada(passengers[passengerPosition].lastName,51,"Ingrese Apellido Pasajero : \n","Error...Ingrese Apellido Pasajero correcto\n");
+					utn_getNombre(passengers[passengerPosition].lastName,51,"Ingrese Nombre Pasajero : \n","Error...Ingrese Nombre Pasajerocorrecto\n",3);
 					break;
 				case 3 :
-					respuestaFlotante=utn_getNumeroFloat(&passengers[passengerPosition].price,"Ingrese Precio de vuelo : \n","Error...Ingrese un valor correcto\n",0,50000,3);
+					respuestaFlotante=utn_getNumeroFlotante(&passengers[passengerPosition].price,"Ingrese Precio de vuelo : \n","Error...Ingrese un valor correcto\n",0,5000000,6);
 					while(respuestaFlotante<0)
 					{
-						respuestaFlotante=utn_getNumeroFloat(&passengers[passengerPosition].price,"Ingrese Precio de vuelo correcto : \n","Error...Ingrese un valor correcto\n",0,50000,3);
+						respuestaFlotante=utn_getNumeroFlotante(&passengers[passengerPosition].price,"Ingrese Precio de vuelo correcto : \n","Error...Ingrese un valor correcto\n",0,5000000,6);
 					}
 
 					break;
